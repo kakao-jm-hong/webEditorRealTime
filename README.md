@@ -1,8 +1,8 @@
 # 웹 실시간 동시 편집기
 
 ## 토이 프로젝트 목표
-- `스마트에디터`의 `문서구조`를 이해하고, 해당 구조를 기반으로 OT 알고리즘을 적용해보자🙏
-- OT 알고리즘 적용 후 가능성 및 방향성 검증
+- `스마트에디터`의 `문서구조`를 이해하고, 해당 구조를 기반으로 `Operational Transform` 알고리즘을 적용해보자🙏
+- `OT` 알고리즘 적용 후 학습 학습~
 - WebPack, TypeScript를 공부하며 적용 🥊
 
 ## 기대효과
@@ -25,4 +25,11 @@ TP1 : For two concurrent operations O1 and O2, the transform function (T) satisf
 TP2 (출처: https://hackernoon.com/analysing-different-operational-transformation-algorithms-for-collaborative-editing-60fcc49ef24b)
 ```
 TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) satisfies TP2 iff T(O3, O1 o T(O2, O1)) ≡ T(O3, O2 o T(O1, O2)). 
+```
+
+
+## WebPack
+```
+npm init -y
+npm i -D webpack webpack-cli
 ```

@@ -1,0 +1,26 @@
+{
+  "name": "webeditorrealtime",
+  "version": "1.0.0",
+  "description": "## 토이 프로젝트 목표 - `스마트에디터`의 `문서구조`를 이해하고, 해당 구조를 기반으로 `Operational Transform` 알고리즘을 적용해보자🙏 - `OT` 알고리즘 적용 후 학습 학습~ - WebPack, TypeScript를 공부하며 적용 🥊",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hongjeongmin/webEditorRealTime.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hongjeongmin/webEditorRealTime/issues"
+  },
+  "homepage": "https://github.com/Hongjeongmin/webEditorRealTime#readme",
+  "devDependencies": {
+    "css-loader": "^6.2.0",
+    "style-loader": "^3.2.1",
+    "webpack": "^5.46.0",
+    "webpack-cli": "^4.7.2"
+  }
+}
