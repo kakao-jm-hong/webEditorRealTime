@@ -1,17 +1,27 @@
 {
   "scripts": {
-    "start": "webpack-dev-server"
+    "start": "webpack-dev-server",
+    "build": "webpack --config webpack.config.js"
   },
   "devDependencies": {
+    "@babel/core": "^7.14.8",
+    "@babel/plugin-proposal-class-properties": "^7.14.5",
+    "@babel/preset-env": "^7.14.8",
+    "@babel/preset-react": "^7.14.5",
+    "babel-loader": "^8.2.2",
+    "css-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.3.2",
     "mini-css-extract-plugin": "^2.1.0",
-    "sass-loader": "^7.2.0",
-    "node-sass": "^5.0.0",
+    "sass": "^1.22.10",
+    "sass-loader": "^10",
     "style-loader": "^3.2.1",
-    "webpack": "^3.8.0",
-    "webpack-cli": "^4.7.2",
-    "webpack-dev-server": "^2.9.7"
+    "ts-loader": "^9.2.4",
+    "typescript": "^4.3.5",
+    "webpack": "^5",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.7.1"
   },
   "dependencies": {
-    "css-loader": "^6.2.0"
+    "@types/webpack-hot-middleware": "^2.25.5"
   }
 }

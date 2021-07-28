@@ -1,3 +1,3 @@
-import '../style/index.css';
+import style from '../style/index.scss';
 
-document.querySelector("#root").innerHTML = 'hello world';
+document.querySelector("#root").innerHTML = 'hello worl!d!!!!!!';
