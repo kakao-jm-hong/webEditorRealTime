@@ -1,8 +1,12 @@
 import React from 'react';
-import Main from './pages/Main';
+import Header from './Component/header/Header';
 class App extends React.Component {
 	render() {
-		return <Main />;
+		return (
+			<>
+				<Header />
+			</>
+		);
 	}
 }
 
