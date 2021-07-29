@@ -1,3 +1,4 @@
 import style from '../style/reset.scss';
+import App from './App.ts';
 
-document.querySelector("#root").innerHTML = 'hello worl!d!!!!!!';
+new App(document.querySelector("#root"));
