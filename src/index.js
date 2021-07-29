@@ -1,4 +1,5 @@
-import style from '../style/reset.scss';
-import App from './App.ts';
+import App from './App';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-new App(document.querySelector("#root"));
+ReactDOM.render(<App />, document.getElementById('root'));

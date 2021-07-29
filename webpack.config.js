@@ -42,6 +42,19 @@ module.exports = {
                 use: 'ts-loader',
                 exclude: /node_modules/,
             },
+            {
+            test: /\.m?js$/,
+            exclude: /node_modules/,
+            use: [{
+                loader: 'babel-loader',
+                options: {
+                presets: [
+                "@babel/preset-env",
+                "@babel/preset-react"
+                ]
+                }
+            }]
+            }
         ],
     },
     resolve: {
