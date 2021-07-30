@@ -20,7 +20,7 @@ module.exports = {
           children: false, // Hide children information
           maxModules: 0 // Set the maximum number of modules to be shown
         }
-      },
+    },
     plugins: [
     new HtmlWebpackPlugin({
         template: './index.html',
