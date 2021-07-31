@@ -1,4 +1,3 @@
-import './App.css';
 import Test from './pages/Test.tsx';
 
 function App() {
