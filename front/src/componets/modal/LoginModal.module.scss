@@ -1,0 +1,27 @@
+.wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 480px;
+    height: 480px;
+    padding-top: 100px;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    background-color: #fff;
+    box-sizing: border-box;
+}
+
+.login, .kakao, .google, .naver, .cancel, .id, .password {
+    padding: 15px 20px;
+    box-sizing: border-box;
+    width: 420px;
+}
