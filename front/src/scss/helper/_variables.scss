@@ -1,0 +1,204 @@
+@charset "utf-8";
+// _variables.scss
+
+// font
+$G-font-family-base: 'Noto Serif', serif;
+$G-font-family-base-japan: 'HiraginoSans', -apple-system, BlinkMacSystemFont, HelveticaNeue,
+  sans-serif;
+$G-font-number: -apple-system, BlinkMacSystemFont, HelveticaNeue, sans-serif;
+$G-font-notosans: 'Noto Sans', sans-serif;
+$G-font-mrs-saint: 'Mrs Saint Delafield', serif;
+$G-font-hiraginoMinchoProN: 'HiraginoMinchoProN', serif;
+$G-font-RoGSanSerif: 'RoGsanSerifStd', sans-serif;
+$G-font-ShinGoPro: 'ShinGoPro', sans-serif;
+$G-font-size: 16px;
+$G-font-bold: 700;
+$G-line-height: 1.25;
+$font-static-path: 'https://fe-article.pstatic.net/static/font';
+$font-static-editor-path: 'https://dev-pstatic.editor.naver.com/v/article/font';
+
+// colors
+$G-color-black: #000;
+$G-color-white: #fff;
+$G-color-red: #f14b4b;
+$G-color-green: #00c781;
+$G-color-green-dark: #26d99a;
+$G-body-color: $G-color-white;
+
+// 레이아웃
+$G-width-pc-wide: 1600px;
+$G-width-pc-middle: 1280px;
+$G-width-pc: 1080px;
+$G-width-tablet: 768px;
+$G-width-mobile: 375px;
+$G-width-mobile-medium: 360px;
+$G-width-mobile-small: 320px;
+$G-width-mobile-fold: 250px;
+$G-width-pc-post: 680px; // 에디터에서 사용
+$G-width-tablet-post: 576px; // 에디터에서 사용
+
+$G-header-height: 56px; // 공통 헤더 높이
+$G-index-button-height: 44px; // 포스트 상단 인덱스 버튼 높이
+$G-home-header-height-mobile: 66px; // 홈 헤더 모바일 높이
+$G-home-header-height-pc: 132px; // 홈 헤더 PC 높이
+$Onboarding-scroll-width: 600px;
+$Onboarding-card-width: 342px;
+$G-padding-tablet-home: 46px; // 홈 tablet 여백
+
+// 상태
+$G-is-ellipsis: 'is_ellipsis';
+$G-is-visible: 'is_visible';
+$G-is-hidden: 'is_hidden';
+$G-is-fixed: 'is_fixed';
+$G-is-selected: 'is_selected';
+$G-is-active: 'is_active';
+$G-is-scroll: 'is_scrolled';
+
+// z-index
+$G-minimum-z-index: 1;
+$Post-tab-bar-z-index: 2010; // tab bar, carousel 기능을 사용하는 컴포넌트는 z-index: 2000 값이 강제로 추가되어 2000 값보다 높게 지정
+$G-Sub-Header-z-index: $Post-tab-bar-z-index + 30;
+$G-toast-alert-z-index: $Post-tab-bar-z-index + 20;
+$G-Covered-layer-z-index: $Post-tab-bar-z-index + 40; // carousel 기능을 사용하는 컴포넌트는 z-index: 2000 값이 강제로 추가되어 2000 값보다 낮으면 레이어가 그위를 덮을 수 없음
+$G-more-menu-z-index: 10;
+$Comment-tap-z-index: 1;
+$Post-index-z-index: $Post-tab-bar-z-index + 20; // End 페이지 상단 위치 인덱스
+$Post-progress-z-index: $Post-tab-bar-z-index + 10; // End 페이지 상단 위치 scroll progress bar
+$Post-read-notice-z-index: $Post-tab-bar-z-index + 10; // End 페이지 상단 위치 scroll progress bar
+$Post-underline-toolbar-z-index: $Post-tab-bar-z-index + 10; // End 페이지 상단 위치 scroll progress bar
+$Home-searchlayer-z-index: 2010;
+$Home-mylayer-z-index: 2030;
+$Editor-tool-layer-z-index: 5;
+$Editor-publish-layer-z-index: 100;
+$Editor-publish-option-z-index: $G-minimum-z-index + 1;
+
+// Class
+$Theme: '.article-theme-';
+$G-preview-pc: '.preview_pc';
+$G-preview-tablet: '.preview_tablet';
+$G-preview-mobile: '.preview_mobile';
+
+// Theme
+// Usage : theme($index);
+$Theme-class: (
+  0: 'default',
+  1: 'frame',
+  2: 'yellow',
+  3: 'oblique',
+  4: 'lively',
+  5: 'circle',
+  6: 'edge',
+  7: 'blackpink',
+  8: 'shadow',
+  9: 'liner',
+  10: 'calm',
+  11: 'galaxy',
+  12: 'brownie',
+  13: 'filmed',
+  14: 'fun',
+);
+
+:export {
+  GLOBAL_HEADER_HEIGHT: $G-header-height;
+  INDEX_BUTTON_HEIGHT: $G-index-button-height;
+  WIDTH_PC_WIDE: $G-width-pc-wide;
+  WIDTH_PC_MIDDLE: $G-width-pc-middle;
+  WIDTH_PC: $G-width-pc;
+  WIDTH_TABLET: $G-width-tablet;
+  HOME_HEADER_HEIGHT_PC: $G-home-header-height-pc;
+  ONBOARDING_SCROLL_WIDTH: $Onboarding-scroll-width;
+  ONBOARDING_CARD_WIDTH: $Onboarding-card-width;
+}
+
+// TODO: Editor, Comment 확인용 임시 변수
+$G-common-layer-z-index: 410;
+$G-editor-header-z-index: 120;
+$G-sub-header-z-index: 30;
+$G-inner-width: 700px;
+$Post-commentcard-layer-z-index: 100;
+$G-color-facebook: #4267b2;
+$G-color-twitter: #1da1f3;
+$G-color-blue: #4490ff;
+
+// Usage : set-theme-color($index, $key);
+// Example : set-theme-color(2, tool) === #e76e0c
+// background : 전체&에디터 툴 배경 색상
+// comment : 에디터&엔드 코멘트 영역 포인트 색상
+// tool : 에디터 툴 포인트 색상
+$Theme-color: (
+  0: (
+    background: $G-color-white,
+    comment: #212121,
+    tool: $G-color-green,
+  ),
+  1: (
+    background: $G-color-white,
+    comment: $G-color-black,
+    tool: $G-color-green,
+  ),
+  2: (
+    background: #fff2a0,
+    comment: $G-color-black,
+    tool: #e76e0c,
+  ),
+  3: (
+    background: #222,
+    comment: #bff0e0,
+    tool: #bff0e0,
+  ),
+  4: (
+    background: #ebebeb,
+    comment: $G-color-black,
+    tool: $G-color-black,
+  ),
+  5: (
+    background: #c1cfc9,
+    comment: #905735,
+    tool: #905735,
+  ),
+  6: (
+    background: $G-color-white,
+    comment: #8b572a,
+    tool: $G-color-green,
+  ),
+  7: (
+    background: #febfa9,
+    comment: $G-color-black,
+    tool: $G-color-black,
+  ),
+  8: (
+    background: $G-color-white,
+    comment: #283c56,
+    tool: $G-color-green,
+  ),
+  9: (
+    background: $G-color-white,
+    comment: $G-color-black,
+    tool: $G-color-green,
+  ),
+  10: (
+    background: #253c40,
+    comment: #fecc9a,
+    tool: #fecc9a,
+  ),
+  11: (
+    background: #222,
+    comment: #9c71f8,
+    tool: #9c71f8,
+  ),
+  12: (
+    background: $G-color-white,
+    comment: #8b572a,
+    tool: #8b572a,
+  ),
+  13: (
+    background: #687b85,
+    comment: #14262f,
+    tool: #14262f,
+  ),
+  14: (
+    background: $G-color-white,
+    comment: #ea3445,
+    tool: #ea3445,
+  ),
+);

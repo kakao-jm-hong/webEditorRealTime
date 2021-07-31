@@ -1,0 +1,311 @@
+@charset "utf-8";
+// _mixins.scss
+
+// float 해체
+@mixin afterClear {
+  display: block;
+  clear: both;
+  content: '';
+}
+
+//마스크
+@mixin mask($num: 0) {
+  position: absolute;
+  left: $num;
+  top: $num;
+  right: $num;
+  bottom: $num;
+  content: '';
+}
+
+@mixin mediaQuery($breakpoint) {
+  @if $breakpoint==pcWide {
+    @media (min-width: $G-width-pc-wide) {
+      // 1600 <= screen
+      @content;
+    }
+  } @else if $breakpoint==pcMiddle {
+    @media (min-width: $G-width-pc-middle) {
+      // 1280 <= screen
+      @content;
+    }
+  } @else if $breakpoint==pc {
+    @media (min-width: $G-width-pc) {
+      //  1080 <= screen
+      @content;
+    }
+  } @else if $breakpoint==tablet {
+    @media (min-width: $G-width-tablet) {
+      // 768 <= screen
+      @content;
+    }
+  } @else if $breakpoint==tabletOnly {
+    @media (min-width: $G-width-tablet) and (max-width: $G-width-pc - 1) {
+      // 768 <= screen < 1080
+      @content;
+    }
+  } @else if $breakpoint==mobile {
+    @media (max-width: $G-width-mobile) {
+      // screen <= 375
+      @content;
+    }
+  } @else if $breakpoint==mobileMedium {
+    @media (max-width: $G-width-mobile-medium) {
+      // screen <= 360
+      @content;
+    }
+  } @else if $breakpoint==mobileSmall {
+    @media (max-width: $G-width-mobile-small) {
+      // screen <= 320
+      @content;
+    }
+  } @else if $breakpoint==mobileOnly {
+    @media (max-width: $G-width-tablet - 1) {
+      // screen < 768
+      @content;
+    }
+  } @else if $breakpoint==mobileFold {
+    @media (max-width: $G-width-mobile-fold) {
+      // screen <= 250
+      @content;
+    }
+  }
+}
+
+@mixin center($width, $height) {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: $width;
+  height: $height;
+  margin-top: -$height/2;
+  margin-left: -$width/2;
+}
+
+@mixin verticalCenter($height) {
+  position: absolute;
+  top: 50%;
+  height: $height;
+  margin-top: -$height/2;
+}
+
+@mixin horizontalCenter($width) {
+  position: absolute;
+  left: 50%;
+  width: $width;
+  margin-left: -$width/2;
+}
+
+@mixin thumbnailProfileCircleSetBorderMask(
+  $size: 25px,
+  $overflow: null,
+  $width: 1px,
+  $color: #000
+) {
+  width: $size;
+  height: $size;
+
+  .image_profile {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: $width solid rgba($color, 0.05);
+    border-radius: 50%;
+  }
+}
+
+@mixin ellipsis(
+  $lines: 1,
+  $display: inline-block,
+  $width: null,
+  $max-width: null,
+  $overflow: hidden
+) {
+  @if ($lines <=1) {
+    display: $display;
+    overflow: $overflow;
+    width: $width;
+    max-width: $max-width;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: normal;
+  } @else {
+    display: $display; // fallback
+    display: -webkit-box;
+    overflow: $overflow;
+    width: $width;
+    max-width: $max-width;
+    -webkit-line-clamp: $lines;
+    -webkit-box-orient: vertical;
+  }
+}
+
+@mixin setBorderMask($width: 1px, $color: #000, $opacity: 0.05) {
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border: $width solid rgba($color, $opacity);
+  }
+}
+
+@mixin fontSizeLineHeight($font-size: 16px) {
+  font-size: $font-size;
+  line-height: $font-size + 4;
+}
+
+@mixin placeholder() {
+  &::-webkit-input-placeholder {
+    // Chrome, Safari, Edge
+    @content;
+  }
+
+  &::-moz-placeholder {
+    // FF 19+
+    @content;
+  }
+
+  &:-ms-input-placeholder {
+    // IE 10+
+    @content;
+  }
+
+  &:-moz-placeholder {
+    // FF 18-
+    @content;
+  }
+}
+
+@mixin dimmed($opacity: 0.3, $color: #000, $top: 0, $left: 0, $right: 0, $bottom: 0) {
+  position: absolute;
+  top: $top;
+  left: $left;
+  right: $right;
+  bottom: $bottom;
+  background-color: rgba($color, $opacity);
+}
+
+// iphoneX 안전 여백 대응
+// iphoneX 가로 세로 모드
+@mixin iphoneX() {
+  @media (min-device-width: 375px) and (min-device-height: 812px) and (min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+// iphoneX 세로 모드
+@mixin iphoneXportrait() {
+  @media (min-device-width: 375px) and (min-device-height: 812px) and (min-device-pixel-ratio: 3) and (orientation: portrait) {
+    @content;
+  }
+}
+
+// iphoneX 가로 모드
+@mixin iphoneXlandscape() {
+  @media (min-device-width: 375px) and (min-device-height: 812px) and (min-device-pixel-ratio: 3) and (orientation: landscape) {
+    @content;
+  }
+}
+
+// 360px 이하 대응
+@mixin mobileMinSizeResponse() {
+  @media screen and (max-width: 359px) {
+    @content;
+  }
+}
+
+@mixin imageDefault {
+  display: inline-block;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  color: transparent;
+  white-space: nowrap;
+  vertical-align: top;
+}
+
+@mixin blind() {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  font-size: medium;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+@mixin position-center() {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+@mixin notch-bottom {
+  padding-bottom: constant(safe-area-inset-bottom);
+  padding-bottom: env(safe-area-inset-bottom);
+}
+
+// TODO: 에디터 확인용 임시 mixin
+@mixin iconTriangle(
+  $direction: 'up',
+  $width: 20px,
+  $height: 10px,
+  $color: #000,
+  $display: inline-block
+) {
+  display: $display;
+  width: $width;
+  height: $height;
+
+  &:before {
+    content: '';
+    display: block;
+
+    @if ($direction== 'up') {
+      border-bottom: $height solid $color;
+      border-left: round($width/2) solid transparent;
+      border-right: round($width/2) solid transparent;
+    } @else if ($direction== 'down') {
+      border-top: $height solid $color;
+      border-left: round($width/2) solid transparent;
+      border-right: round($width/2) solid transparent;
+    } @else if ($direction== 'left') {
+      border-top: round($height/2) solid transparent;
+      border-bottom: round($height/2) solid transparent;
+      border-right: $width solid $color;
+    } @else if ($direction== 'right') {
+      border-top: round($height/2) solid transparent;
+      border-bottom: round($height/2) solid transparent;
+      border-left: $width solid $color;
+    }
+  }
+}
+
+// focus outline default
+@mixin focusOutline($focus: true) {
+  @if ($focus == true) {
+    &:focus {
+      outline: 1px dotted #808080;
+      outline: medium auto currentcolor;
+      outline: medium auto -webkit-focus-ring-color;
+    }
+  } @else {
+    outline: 1px dotted #808080;
+    outline: medium auto currentcolor;
+    outline: medium auto -webkit-focus-ring-color;
+  }
+}

@@ -1,0 +1,62 @@
+.wrap {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 480px;
+    height: 480px;
+    padding-top: 40px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 4px;
+    transform: translate(-50%, -50%);
+    box-sizing: border-box;
+}
+
+.login, .kakao, .google, .naver, .id, .password {
+    padding: 15px 20px;
+    margin-top: 15px;
+    box-sizing: border-box;
+    width: 420px;
+    border-radius: 4px;
+}
+
+.id, .password {
+    border: 1px solid #ccc;
+}
+
+.kakao, .naver, .google, .login {
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.kakao {
+    background-color: yellow;
+}
+
+.naver {
+     background-color: #00c781;
+}
+
+.google {
+    border: 1px solid #ccc;
+}
+
+.login {
+    background-color: #ccc;
+}
+
+.cancel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
