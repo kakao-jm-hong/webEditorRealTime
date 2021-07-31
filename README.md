@@ -28,8 +28,12 @@ TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) 
 ```
 
 
-## WebPack
+## WebPack + React + Redux 설정
 ```
 npm init -y
 npm i -D webpack webpack-cli
 ```
+
+## Node.js 서버추가.
+
+## Oauth 2.0 로그인 서비스 추가.
