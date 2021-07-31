@@ -2,7 +2,7 @@ const express = require('express'); //express를 설치했기 때문에 가져�
 const app = express();
 const winston = require('winston');
 const logger = winston.createLogger();
-const request = require('request');
+// const request = require('request');
 
 app.get(`/oauth/:coperation`, (req, res) => {
     const coperation = req.params.coperation;
@@ -16,8 +16,17 @@ app.get(`/oauth/:coperation`, (req, res) => {
         break;
     }
 
+    // const request = require('request');
 
+    // const options = {
+    //     uri:'http://google.com',
+    //     method: 'POST',
+        
+    // }
 
+    // request.post(options, function (error, response, body) {
+    //     //callback
+    // });
     res.send("test"+code);
 })
 
