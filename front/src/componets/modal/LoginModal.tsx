@@ -3,10 +3,6 @@ import style from './LoginModal.module.scss';
 // import classnames from 'classnames';
 import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
 
-// const kakaoLogin = ()=> {
-    
-// }
-
 const LoginModal = ()=> {
     return (
         <div className={style.wrap}>
