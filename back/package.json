@@ -11,6 +11,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
+    "node-fetch": "^2.6.1",
+    "qs": "^6.10.1",
+    "request": "^2.88.2",
     "winston": "^3.3.3"
   },
   "devDependencies": {
