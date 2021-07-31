@@ -509,7 +509,13 @@ module.exports = function (webpackEnv) {
                     ? shouldUseSourceMap
                     : isEnvDevelopment,
                 },
-                'sass-loader'
+                'sass-loader',
+                {
+                  loader: 'sass-resources-loader',
+                  options: {
+                    resources: `${paths.src}/client/scss/helper/**/*.scss`,
+                  },
+                },
               ),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.

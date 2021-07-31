@@ -1,8 +1,8 @@
-import Test from './pages/Test.tsx';
+import Main from './pages/Main';
 
 function App() {
   return (
-    <Test />
+    <Main />
   );
 }
 
