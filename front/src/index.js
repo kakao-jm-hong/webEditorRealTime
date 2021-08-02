@@ -5,6 +5,8 @@ import './global.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+// Redux
+
 ReactDOM.render(
   <React.StrictMode>
     <App />

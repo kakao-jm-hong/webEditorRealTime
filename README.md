@@ -29,13 +29,18 @@ TP2 (출처: https://hackernoon.com/analysing-different-operational-transformati
 TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) satisfies TP2 iff T(O3, O1 o T(O2, O1)) ≡ T(O3, O2 o T(O1, O2)). 
 ```
 
-
-## WebPack + React + Redux 설정
+## UDPATE
+### WebPack 설정
+### Node.js 서버추가.
+### Oauth 2.0 로그인 서비스 추가.
+- https://redbinalgorithm.tistory.com/687
+### Redux 환경 추가
 ```
-npm init -y
-npm i -D webpack webpack-cli
+- npm install redux react-redux
+- npm install redux-thunk
+- npm install redux-logger --dev
+- npm install react-router-dom react-router-redux history
+- npm install redux-devtools-extension --dev
 ```
 
-## Node.js 서버추가.
 
-## Oauth 2.0 로그인 서비스 추가.
