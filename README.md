@@ -5,6 +5,8 @@
 - `OT` 알고리즘 적용 후 학습 학습~
 - WebPack, TypeScript, Node.js, React, Reduct 를 공부하며 적용 🥊
 - WebSocekt 구현 (실시간 채팅기능)
+- Redis 추가 (실시간 채팅기능, 스마트에디터 빠른 동기화)
+- 에디터 드래그 style 추가( 중요한 코드 밑줄!!!!)
 
 ## 기대효과
 - 스마트에디터 문서구조 기반으로 OT 알고리즘 적용 가능성 검증 및 변경
@@ -31,6 +33,8 @@ TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) 
 
 ## UDPATE
 ### WebPack 설정
+- 상대경로 -> 절대경로 추가
+- typescript 추가
 ### Node.js 서버추가.
 ### Oauth 2.0 로그인 서비스 추가.
 - https://redbinalgorithm.tistory.com/687
@@ -50,8 +54,11 @@ src
 │   app.js          # App entry point
 └───controller      # Express route controllers for all the endpoints of the app
 └───config          # Environment variables and configuration related stuff
-└───repo            # Split the startup process into modules
-└───dto             # Database models
+└───dto             # Split the startup process into modules
+└───repo            # Database models
 └───services        # All the business logic is here
 └───types           # Type declaration files (d.ts) for Typescript
 ```
+
+### JWT Token 추가
+- hader 값으로 jwt token 전달
