@@ -1,3 +1,5 @@
+const express = require('express');
+const router = express.Router();
 const winston = require('winston');
 const logger = winston.createLogger();
 const qs = require('qs');
@@ -68,7 +70,7 @@ const getOption = (coperation, code)=> {
     }
 }
 
-app.get(`/:coperation`, async (req, res) => {
+router.get(`/:coperation`, async (req, res) => {
     const coperation = req.params.coperation;
     const code = req.param('code');
     const options = getOption(coperation, code);
@@ -76,3 +78,5 @@ app.get(`/:coperation`, async (req, res) => {
     const userInfo = await getUserInfo(options.userInfoUrl, token.access_token);
     res.send(userInfo);
 });
+
+module.exports = router;
