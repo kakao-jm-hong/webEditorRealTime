@@ -1,8 +1,10 @@
 import Main from './pages/Main';
+import ReduxTest from './legacy/ReduxTest';
 
 function App() {
   return (
-    <Main />
+    // <Main />
+    <ReduxTest />
   );
 }
 
