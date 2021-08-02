@@ -5,6 +5,7 @@ import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/type';
 import { setLogin } from "../../redux/actions/loginActions";
+
 const LoginModal = ()=> {
     const dispatch = useDispatch();
 
