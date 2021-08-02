@@ -1,16 +1,21 @@
-import React from 'react';
+import React, { useEffect } from "react";
 import ReactDOM from 'react-dom';
 import './reset.css';
 import './global.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
-// Redux
+// Rdux 적용
+import { Provider } from 'react-redux';
+import configureStore from "./redux/configureStore";
 
+const store = configureStore({ loading: false, login: {modal: false}});
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <Provider store={store}>
+    <React.StrictMode>
+      <App />
+    </React.StrictMode>
+  </Provider>,
   document.getElementById('root')
 );
 
