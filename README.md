@@ -44,4 +44,14 @@ TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) 
 ```
 - https://redbinalgorithm.tistory.com/688
 
-
+### Node.js 서버 프로젝트 구조 변경
+```
+src
+│   app.js          # App entry point
+└───controller      # Express route controllers for all the endpoints of the app
+└───config          # Environment variables and configuration related stuff
+└───repo            # Split the startup process into modules
+└───dto             # Database models
+└───services        # All the business logic is here
+└───types           # Type declaration files (d.ts) for Typescript
+```

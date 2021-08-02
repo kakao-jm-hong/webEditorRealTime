@@ -1,5 +1,3 @@
-const express = require('express'); //express를 설치했기 때문에 가져올 수 있다.
-const app = express();
 const winston = require('winston');
 const logger = winston.createLogger();
 const qs = require('qs');
@@ -70,16 +68,11 @@ const getOption = (coperation, code)=> {
     }
 }
 
-app.get(`/oauth/:coperation`, async (req, res) => {
+app.get(`/:coperation`, async (req, res) => {
     const coperation = req.params.coperation;
     const code = req.param('code');
     const options = getOption(coperation, code);
     const token = await getAccessToken(options);
     const userInfo = await getUserInfo(options.userInfoUrl, token.access_token);
-
-    // TODO Redirect Frot Server (쿠키, 세션, local_store 중에 로그인을 유지한다.)
-    // TODO Data Base or 쿠키 reflesh Token 저장 방법 모색
     res.send(userInfo);
-})
-
-app.listen(8081);
+});
