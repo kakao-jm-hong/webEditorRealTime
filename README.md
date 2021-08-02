@@ -42,5 +42,6 @@ TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) 
 - npm install react-router-dom react-router-redux history
 - npm install redux-devtools-extension --dev
 ```
+- https://redbinalgorithm.tistory.com/688
 
 
