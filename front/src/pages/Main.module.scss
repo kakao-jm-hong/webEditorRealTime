@@ -1,20 +1,10 @@
-@import 'utils.scss';
-
-.header {
-    font-size: $G-font-size;
-    // @include mediaQuery(tablet) {
-
-    // }
-
-    // @include mediaQuery(pc) {
-
-    // }
-
-    // @include mediaQuert(pcWide) {
-
-    // }
-}
-
 .main {
+    padding: 15px;
+
+    @include mediaQuery(pc) {
+        width: $G-width-pc;
+        padding: 0 15px;
+        margin: 0 auto;
+    }
 
 }

@@ -1,4 +1,6 @@
 # 웹 실시간 동시 편집기
+이게 뭐하는 토이프로젝트 라고 한다면... 친구들이랑 코딩 스터디할 때 내코드를 보여주고 수정해주는걸 보여주고 싶을 때가 있자나요.. 근데 복붙하거나 머 다른 훌륭한 에디터도 있지만 채팅도 되고 소스코드에 마킹도하고 누가누가 여기를 추가했습니다! 이런 메타 데이터들을 동적으로 보여주면 더좋을것 같더라고요... ㅎㅎㅎㅎㅎㅎ 그래서 만들어봅니다~
+
 
 ## 토이 프로젝트 목표
 - `스마트에디터`의 `문서구조`를 이해하고, 해당 구조를 기반으로 `Operational Transform` 알고리즘을 적용해보자🙏
@@ -22,14 +24,10 @@ Operational-Transformation/ot.js(출처: github)
 http://operational-transformation.github.io/index.html
  
 TP1 (출처: https://hackernoon.com/analysing-different-operational-transformation-algorithms-for-collaborative-editing-60fcc49ef24b)
-```
-TP1 : For two concurrent operations O1 and O2, the transform function (T) satisfies TP1 iff O1 o T(O2, O1) ≡ O2 o T(O1, O2) where o denotes the sequence of operations containing Oi followed by Oj and ≡ denotes the equivalence of the two operations. 
-```
 
 TP2 (출처: https://hackernoon.com/analysing-different-operational-transformation-algorithms-for-collaborative-editing-60fcc49ef24b)
-```
-TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) satisfies TP2 iff T(O3, O1 o T(O2, O1)) ≡ T(O3, O2 o T(O1, O2)). 
-```
+
+https://ko.reactjs.org/
 
 ## UDPATE
 ### WebPack 설정

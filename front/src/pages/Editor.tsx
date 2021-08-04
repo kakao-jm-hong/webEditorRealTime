@@ -2,20 +2,17 @@ import React from 'react';
 import Header from '../componets/Header';
 import LoginModal from '../componets/modal/LoginModal';
 import style from './Main.module.scss';
-// type Tprops {
 
-// }
-
-const Main = ()=> {
+const Editor = ()=> {
     return (
         <>
             <Header className={style.header} />
             <main id="content" className={style.main}>
-                Main Page
+                Editor page
             </main>
             <LoginModal />
         </>
     );
 }
 
-export default Main;
+export default Editor;

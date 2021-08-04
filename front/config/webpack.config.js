@@ -483,24 +483,44 @@ module.exports = function (webpackEnv) {
               sideEffects: true,
             },
             // Adds support for CSS Modules (https://github.com/css-modules/css-modules)
+            // using the extension .module.css
+            {
+              test: cssModuleRegex,
+              use: getStyleLoaders({
+                importLoaders: 1,
+                sourceMap: isEnvProduction
+                  ? shouldUseSourceMap
+                  : isEnvDevelopment,
+                modules: {
+                  getLocalIdent: getCSSModuleLocalIdent,
+                },
+              }),
+            },
+            // Opt-in support for SASS (using .scss or .sass extensions).
+            // By default we support SASS Modules with the
+            // extensions .module.scss or .module.sass
             {
               test: sassRegex,
               exclude: sassModuleRegex,
               use: getStyleLoaders(
                 {
-                  importLoaders: 2,
-                  sourceMap: isEnvProduction && shouldUseSourceMap,
+                  importLoaders: 3,
+                  sourceMap: isEnvProduction
+                    ? shouldUseSourceMap
+                    : isEnvDevelopment,
                 },
-                ).concat({
-                  loader: require.resolve('sass-loader'),
+                'sass-loader',
+                {
+                  loader: 'sass-resources-loader',
                   options: {
-                    // additionalData: `@import '@/src/scss/utils.scss';`,
-                    sassOptions: {
-                      includePaths: [`${paths.appSrc}/scss`],
-                      sourceMap: isEnvProduction && shouldUseSourceMap,
-                    },
-                  }
-                }),
+                    resources: `${paths.appSrc}/scss/helper/**/*.scss`,
+                  },
+                },
+              ),
+              // Don't consider CSS imports dead code even if the
+              // containing package claims to have no side effects.
+              // Remove this when webpack adds a warning or an error for this.
+              // See https://github.com/webpack/webpack/issues/6571
               sideEffects: true,
             },
             // Adds support for CSS Modules, but using SASS
@@ -521,9 +541,9 @@ module.exports = function (webpackEnv) {
               ).concat({
                 loader: require.resolve('sass-loader'),
                 options: {
-                  // additionalData: `@import '@/src/scss/utils.scss';`,
+                  additionalData: `@import 'scss/utils.scss';`,
                   sassOptions: {
-                    includePaths: [`${paths.appSrc}/scss`],
+                    includePaths: [`${paths.appSrc}`],
                     sourceMap: isEnvProduction && shouldUseSourceMap,
                   },
                 }
