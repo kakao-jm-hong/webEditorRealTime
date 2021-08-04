@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './EditorItem.scss';
+import style from './EditorItem.module.scss';
 
 type Pprops = {
     item: {
@@ -11,11 +11,14 @@ type Pprops = {
 
 const EditorItem = ({item}: Pprops) => {
     return(
-        <div>
-            dd
-            <div>{item.title}</div>
-            <div>{item.lang}</div>
-            <div>{item.nickname}</div>
+        <div className={style.wrap}>
+            <a href={'#'} className={style.link}>
+                <div className={style.image}><span className="blind">개발 언어</span>{item.lang}</div>
+                <div className={style.text}>
+                    <strong className={style.nickname}>{item.nickname}</strong>
+                    <p className={style.title}>{item.title}</p>
+                </div>
+            </a>
         </div>
     )
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import style from './EditorList.scss';
+import style from './EditorList.module.scss';
 import EditorItem from './EditorItem';
 
 const DEMO_PROPS = {
@@ -36,8 +36,8 @@ const EditorList = ()=> {
     const { items } = DEMO_PROPS;
     return (
         <ul className={style.list}>
-            {items.map((item) => 
-                <li>{<EditorItem item={item}/>}</li>
+            {items.map((item, index) => 
+                <li key={index}className={style.item}>{<EditorItem item={item}/>}</li>
             )}
         </ul>
     );
