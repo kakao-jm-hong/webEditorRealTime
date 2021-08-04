@@ -1,5 +1,7 @@
-.header {
+@import 'utils.scss';
 
+.header {
+    font-size: $G-font-size;
     // @include mediaQuery(tablet) {
 
     // }
