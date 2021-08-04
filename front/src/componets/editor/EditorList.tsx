@@ -1,13 +1,9 @@
 import React from 'react';
 import style from './EditorList.scss';
-
-type Tprops = {
-    items: [];
-}
+import EditorItem from './EditorItem';
 
 const DEMO_PROPS = {
-    // TODO: data table 구성전...
-    items : [
+    items: [
         {
             title: '알고리즘 도와줘~',
             lang: 'C/C++',
@@ -32,18 +28,19 @@ const DEMO_PROPS = {
             title: '이거 왜 에러나요???',
             lang: 'C/C++',
             nickname: '백선빈',
-        },
+        }
     ],
-}
+};
 
-const EditorList = ({items}: Tprops)=> {
+const EditorList = ()=> {
+    const { items } = DEMO_PROPS;
     return (
-        <ul className={style.wrap}>
-            {items.map(() => {
-
-            })}
+        <ul className={style.list}>
+            {items.map((item) => 
+                <li>{<EditorItem item={item}/>}</li>
+            )}
         </ul>
     );
-}
+};
 
 export default EditorList;

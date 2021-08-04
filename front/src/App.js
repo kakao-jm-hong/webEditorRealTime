@@ -1,6 +1,6 @@
 import Main from './pages/Main';
 import Editor from './pages/Editor';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch,/* Link*/ } from 'react-router-dom';
 
 function App() {
   return (

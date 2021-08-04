@@ -4,7 +4,7 @@
 
     @include mediaQuery(pc) {
         width: $G-width-pc;
-        padding: 0 15px;
+        padding: 15px 0;
         margin: 0 auto;
     }
 }

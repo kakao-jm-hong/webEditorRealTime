@@ -1,0 +1,81 @@
+.list {
+    display: grid;
+
+    @include mediaQuery(tablet) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 36px;
+    }
+
+    @include mediaQuery(pc) {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        column-gap: 48px;
+    }
+
+    @include mediaQuery(pcWide) {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+.item {
+position: relative;
+padding: 30px 0 31px;
+
+&::after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 1px;
+    width: 100%;
+    background-color: #f0f0f0;
+    content: '';
+}
+
+@include mediaQuery(tablet) {
+    &:nth-child(n) {
+    &::after {
+        content: none;
+    }
+    }
+
+    &:nth-child(2n + 1) {
+    &::after {
+        width: 680px;
+        content: '';
+    }
+    }
+}
+
+@include mediaQuery(pc) {
+    padding: 60px 0 61px;
+
+    &:nth-child(n) {
+    &::after {
+        content: none;
+    }
+    }
+
+    &:nth-child(3n + 1) {
+    &::after {
+        width: calc(100vw - #{$G-padding-tablet-home} * 2);
+        max-width: 1236px;
+        content: '';
+    }
+    }
+}
+
+@include mediaQuery(pcWide) {
+    &:nth-child(n) {
+    &::after {
+        content: none;
+    }
+    }
+
+    &:nth-child(4n + 1) {
+    &::after {
+        width: 1564px;
+        max-width: none;
+        content: '';
+    }
+    }
+}
+}
