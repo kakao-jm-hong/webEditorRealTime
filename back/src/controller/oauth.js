@@ -79,8 +79,8 @@ router.get(`/:coperation`, async (req, res) => {
     const token = await getAccessToken(options);
     const userInfo = await getUserInfo(options.userInfoUrl, token.access_token);
 
-    // const loginDto = new LoginDto(userInfo);
-    res.send(userInfo);
+    const loginDto = new LoginDto(userInfo);
+    res.send(loginDto);
 });
 
 module.exports = router;
