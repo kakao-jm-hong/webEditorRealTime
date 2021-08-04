@@ -1,3 +1,5 @@
+const LoginDto = require('../dto/LoginDto');
+
 const express = require('express');
 const router = express.Router();
 const winston = require('winston');
@@ -76,6 +78,8 @@ router.get(`/:coperation`, async (req, res) => {
     const options = getOption(coperation, code);
     const token = await getAccessToken(options);
     const userInfo = await getUserInfo(options.userInfoUrl, token.access_token);
+
+    // const loginDto = new LoginDto(userInfo);
     res.send(userInfo);
 });
 
