@@ -513,7 +513,7 @@ module.exports = function (webpackEnv) {
                 {
                   loader: 'sass-resources-loader',
                   options: {
-                    resources: `${paths.src}/client/scss/helper/**/*.scss`,
+                    resources: `${paths.appSrc}/scss/helper/**/*.scss`,
                   },
                 },
               ),

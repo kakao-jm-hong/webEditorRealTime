@@ -1,15 +1,21 @@
 .header {
     display: flex;
+    padding: 15px;
 }
 
 .title{
     flex: 1 1 auto;
+    margin-top: 13px;
     font-size: 32px;
     font-weight: bold;
 }
 
 .login {
     padding: 15px 40px;
+    font-weight: 800;
+    background-color: #000;
+    border-radius: 15px;
+    color: #fff;
 }
 
 .setting {
