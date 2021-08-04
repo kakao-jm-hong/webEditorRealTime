@@ -51,3 +51,11 @@ button {
     border: 0;
     background-color: transparent;
 }
+
+a:link, a:visited  {
+	color: inherit;
+}
+
+a {
+	text-decoration: none;
+}

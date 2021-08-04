@@ -3,12 +3,16 @@
 ## 토이 프로젝트 목표
 - `스마트에디터`의 `문서구조`를 이해하고, 해당 구조를 기반으로 `Operational Transform` 알고리즘을 적용해보자🙏
 - `OT` 알고리즘 적용 후 학습 학습~
-- WebPack, TypeScript를 공부하며 적용 🥊
+- WebPack, TypeScript, Node.js, React, Reduct 를 공부하며 적용 🥊
+- WebSocekt 구현 (실시간 채팅기능)
+- Redis 추가 (실시간 채팅기능, 스마트에디터 빠른 동기화)
+- 에디터 드래그 style 추가( 중요한 코드 밑줄!!!!)
 
 ## 기대효과
 - 스마트에디터 문서구조 기반으로 OT 알고리즘 적용 가능성 검증 및 변경
 - 문서 구조 외 OT 알고리즘 구현을 위한 추가적인 필요 기술 공부 (Node.js로 백엔드 구현해보기)
 - OT 알고리즘에 대한 검증 및 개발을 용이하게 할 수 있는 데모 페이지 구성
+
 
 ## 관련 링크
 실시간 문서 협업은 어떻게 동작할까(출처: 삼성멤버십)
@@ -27,9 +31,34 @@ TP2 (출처: https://hackernoon.com/analysing-different-operational-transformati
 TP2 : For three concurrent operations O1, O2 and O3, the transform function (T) satisfies TP2 iff T(O3, O1 o T(O2, O1)) ≡ T(O3, O2 o T(O1, O2)). 
 ```
 
+## UDPATE
+### WebPack 설정
+- 상대경로 -> 절대경로 추가
+- typescript 추가
+### Node.js 서버추가.
+### Oauth 2.0 로그인 서비스 추가.
+- https://redbinalgorithm.tistory.com/687
+### Redux 환경 추가
+```
+- npm install redux react-redux
+- npm install redux-thunk
+- npm install redux-logger --dev
+- npm install react-router-dom react-router-redux history
+- npm install redux-devtools-extension --dev
+```
+- https://redbinalgorithm.tistory.com/688
 
-## WebPack
+### Node.js 서버 프로젝트 구조 변경
 ```
-npm init -y
-npm i -D webpack webpack-cli
+src
+│   app.js          # App entry point
+└───controller      # Express route controllers for all the endpoints of the app
+└───config          # Environment variables and configuration related stuff
+└───dto             # Split the startup process into modules
+└───repo            # Database models
+└───services        # All the business logic is here
+└───types           # Type declaration files (d.ts) for Typescript
 ```
+
+### JWT Token 추가
+- hader 값으로 jwt token 전달
