@@ -61,6 +61,12 @@ src
 - https://redbinalgorithm.tistory.com/692
 - hader 값으로 jwt token 전달
 
+#### 로그인 플로우
+
+### Passprotjs 구독
+- 매번 JWT 토큰을 인증하고 node.js를 발급받는 것에서 한계점 미들웨어 정보 구독
+- http://www.passportjs.org/
+
 
 ### 그외 업데이트
 #### 로그인 이미지의 디자인이 변경되었습니다.

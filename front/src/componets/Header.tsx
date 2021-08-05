@@ -1,19 +1,17 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from './Header.module.scss';
 import classnames from 'classnames';
 import { ReactComponent as User }  from '../images/svg/icon_user_my.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from "../redux/actions/loginActions";
 import { RootState } from '../redux/type';
-import { useCookies } from "react-cookie";
-
 
 type Pprops = {
     className?: string;
 }
 
 const Header = ({className}:Pprops)=> {
-    const [userInfo,setUserInfo] = useState({});
+    const [userInfo, setUserInfo] = useState({});
 
     const dispatch = useDispatch();
     
@@ -22,33 +20,6 @@ const Header = ({className}:Pprops)=> {
     const onLogin = () => {
         dispatch(setLogin(true));
     };
-
-    const [cookies, setCookie, removeCookie] = useCookies(['token']);
-
-    const getUserInfo = async (access_token: String) => {
-        const result = await fetch('http://localhost:8081/user/certification',{
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-                'Authorization': `Bearer ${access_token}`
-            }
-        }).then(res => res.json());
-        console.log('test!!!!!!');
-        return result;
-    }
-
-    useEffect(() => {
-        const token = cookies.token;
-        if(cookies.token !== undefined){
-            const tmp = getUserInfo(token);
-            console.log(tmp);
-            // if(){
-
-            // }else{
-            //     removeCookie('token');
-            // }
-        }
-    });
 
     return (
         <header className={classnames(style.header, className)}>

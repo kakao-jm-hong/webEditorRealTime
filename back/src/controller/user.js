@@ -9,8 +9,9 @@ const jwt = require('../modules/jwt');
 router.get('/certification', async (req, res) => {
     const [type, token] = req.get('Authorization').split(' ');
     const verify = await jwt.verify(token);
-
-    res.send(verify);
+    const result =  {id:verify.id, nickname: verify.nickname, userImage: verify.userImage};
+    console.log(result);
+    res.send(result);
 });
 
 module.exports = router;
