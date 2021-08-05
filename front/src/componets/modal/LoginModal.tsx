@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import style from './LoginModal.module.scss';
 // import classnames from 'classnames';
-import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/type';
 import { setLogin } from "../../redux/actions/loginActions";
 
 // svg
+import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
 import { ReactComponent as Kakao }  from '../../images/svg/login_kakao.svg';
 import { ReactComponent as Naver }  from '../../images/svg/login_naver.svg';
 import { ReactComponent as Google }  from '../../images/svg/login_google.svg';

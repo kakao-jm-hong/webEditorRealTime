@@ -5,13 +5,14 @@ import { ReactComponent as User }  from '../images/svg/icon_user_my.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from "../redux/actions/loginActions";
 import { RootState } from '../redux/type';
+import HomeMyLayer from "./home/HomeMyLayer";
+import ThumbnailImage from "./thumbnail/ThumbnailImage";
 
 type Pprops = {
     className?: string;
 }
 
 const Header = ({className}:Pprops)=> {
-    const [userInfo, setUserInfo] = useState({});
 
     const dispatch = useDispatch();
     
@@ -21,10 +22,21 @@ const Header = ({className}:Pprops)=> {
         dispatch(setLogin(true));
     };
 
+    const onMy = () => {
+        // TODO 나의 창 띄우기
+    };
+
     return (
         <header className={classnames(style.header, className)}>
             <h1 className={style.title}>우리의 코드</h1>
-            {user && <button type="button" className={style.user}><span className="blind">유저 정보</span><User width="28" height="28" className={style.user_image}/></button>}
+            {user && 
+                <>
+                    <button type="button" className={style.user} onClick={onMy}>
+                        <ThumbnailImage userImage={user.userImage} />
+                    </button>
+                    <HomeMyLayer />
+                </>
+            }
             {!user && <button type="button" className={style.login} onClick={onLogin}>로그인</button>}
             {/* <button type="button" aria-label="설정 더보기" className={style.setting}></button> */}
         </header>
