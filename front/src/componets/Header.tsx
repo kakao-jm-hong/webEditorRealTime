@@ -26,14 +26,14 @@ const Header = ({className}:Pprops)=> {
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
 
     const getUserInfo = async (access_token: String) => {
-        const result = await fetch('http://localhost:8081/certification',{
+        const result = await fetch('http://localhost:8081/user/certification',{
             method: 'GET',
             headers: {
                 'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
                 'Authorization': `Bearer ${access_token}`
             }
         }).then(res => res.json());
-
+        console.log('test!!!!!!');
         return result;
     }
 
@@ -41,11 +41,12 @@ const Header = ({className}:Pprops)=> {
         const token = cookies.token;
         if(cookies.token !== undefined){
             const tmp = getUserInfo(token);
-            if(token){
-                console.log(token);
-            }else{
-                removeCookie('token');
-            }
+            console.log(tmp);
+            // if(){
+
+            // }else{
+            //     removeCookie('token');
+            // }
         }
     });
 

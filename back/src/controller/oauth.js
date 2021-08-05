@@ -83,7 +83,6 @@ router.get(`/:coperation`, async (req, res) => {
 
     const loginDto = new LoginDto(userInfo);
     const jwtToken = await jwt.sign(loginDto);
-    // const verify = await jwt.verify(jwtToken.token);
 
     res.cookie('token', jwtToken.token);
     res.redirect('http://localhost:3000/');
