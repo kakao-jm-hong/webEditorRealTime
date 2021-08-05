@@ -28,7 +28,7 @@ const LoginModal = ()=> {
                 <div className={style.item}>
                     <strong className={style.title}>우리의 코딩에 입장</strong>
                     <p className={style.text}>누구나 함께 멋진 코드를 만들어 갈 수 있습니다!</p>
-                    <small className={style.sub}>로그인 하실 경우 이용 약관과 프라이버시 정책에 동의합니다</small>
+                    <small className={style.sub}>로그인 하실 경우 이용 약관과 개인정보 정책에 동의합니다</small>
                     <a href={""} className={style.facebook}>Start With Facebook <Facebook className={style.icon_facebook} width="25" height="25"/></a>
                     <a href={"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=40743e16f1a2a35513c0d4bd149aa080&redirect_uri=http://localhost:8081/oauth/kakao"} className={style.kakao}>Start Width Kakao<Kakao className={style.icon_kakao} width="35" height="35"/></a>
                     <a href={""} className={style.google}>Start with Google<Google className={style.icon_google} width="20" height="20"/></a>
