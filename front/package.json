@@ -57,6 +57,7 @@
     "prompts": "2.4.0",
     "react": "^17.0.2",
     "react-app-polyfill": "^2.0.0",
+    "react-cookie": "^4.0.3",
     "react-dev-utils": "^11.0.3",
     "react-dom": "^17.0.2",
     "react-redux": "^7.2.4",
