@@ -19,9 +19,9 @@ const Header = ({className}:Pprops)=> {
 
     return (
         <header className={classnames(style.header, className)}>
-            <h1 className={style.title}>RT Editor</h1>
+            <h1 className={style.title}>우리의 코드</h1>
             {user && <button type="button" className={style.user}><span className="blind">유저 정보</span><User width="28" height="28" className={style.user_image}/></button>}
-            {!user && <button type="button" className={style.login} onClick={onLogin}>Login</button>}
+            {!user && <button type="button" className={style.login} onClick={onLogin}>로그인</button>}
             {/* <button type="button" aria-label="설정 더보기" className={style.setting}></button> */}
         </header>
     );

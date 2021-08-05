@@ -52,10 +52,12 @@ button {
     background-color: transparent;
 }
 
-a:link, a:visited  {
-	color: inherit;
-}
-
 a {
 	text-decoration: none;
+}
+
+body {
+	font-family: "HiraginoSans", "SFUIDisplay" sans-serif;
+	line-height: 1.25;
+	font-weight: 300;
 }
