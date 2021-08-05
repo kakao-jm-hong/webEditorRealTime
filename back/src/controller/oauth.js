@@ -6,7 +6,7 @@ const winston = require('winston');
 const logger = winston.createLogger();
 const qs = require('qs');
 const fetch = require('node-fetch');
-
+const cookieParser = require('cookie-parser');
 const jwt = require('../modules/jwt');
 
 class Kakao {
@@ -83,8 +83,10 @@ router.get(`/:coperation`, async (req, res) => {
 
     const loginDto = new LoginDto(userInfo);
     const jwtToken = await jwt.sign(loginDto);
-    const verify = await jwt.verify(jwtToken.token);
-    res.send(jwtToken.token +"       "+ verify);
+    // const verify = await jwt.verify(jwtToken.token);
+
+    res.cookie('token', jwtToken.token);
+    res.redirect('http://localhost:3000/');
 });
 
 module.exports = router;
