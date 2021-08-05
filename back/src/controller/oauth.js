@@ -7,6 +7,8 @@ const logger = winston.createLogger();
 const qs = require('qs');
 const fetch = require('node-fetch');
 
+const jwt = require('../modules/jwt');
+
 class Kakao {
     constructor(code) {
         this.url = 'https://kauth.kakao.com/oauth/token';
@@ -14,7 +16,7 @@ class Kakao {
         this.clientSecret = 'riUIwNSJrzZQojJ2W7sH3kEo3Qdv2tM4';
         this.redirectUri = 'http://localhost:8081/oauth/kakao';
         this.code = code;
-
+        this.type = 'KAKAO';
         // userInfo
         this.userInfoUrl = 'https://kapi.kakao.com/v2/user/me';
     }
@@ -80,7 +82,9 @@ router.get(`/:coperation`, async (req, res) => {
     const userInfo = await getUserInfo(options.userInfoUrl, token.access_token);
 
     const loginDto = new LoginDto(userInfo);
-    res.send(loginDto);
+    const jwtToken = await jwt.sign(loginDto);
+    const verify = await jwt.verify(jwtToken.token);
+    res.send(jwtToken.token +"       "+ verify);
 });
 
 module.exports = router;

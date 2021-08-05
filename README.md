@@ -58,6 +58,7 @@ src
 ```
 
 ### JWT Token 추가
+- https://redbinalgorithm.tistory.com/manage/posts/
 - hader 값으로 jwt token 전달
 
 
