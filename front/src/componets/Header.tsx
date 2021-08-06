@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import style from './Header.module.scss';
 import classnames from 'classnames';
-import { ReactComponent as User }  from '../images/svg/icon_user_my.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { setLogin } from "../redux/actions/loginActions";
 import { RootState } from '../redux/type';
 import HomeMyLayer from "./home/HomeMyLayer";
 import ThumbnailImage from "./thumbnail/ThumbnailImage";
+import { useCookies } from "react-cookie";
+import { Redirect } from "react-router-dom";
 
 type Pprops = {
     className?: string;
@@ -28,6 +29,13 @@ const Header = ({className}:Pprops)=> {
         setMyLayer(!myLayer);
     };
 
+    const [cookies, setCookie, removeCookie] = useCookies(['token']);
+
+    const logout = () => {
+        console.log("remove token");
+        removeCookie('token');
+    };
+
     return (
         <header className={classnames(style.header, className)}>
             <h1 className={style.title}>우리의 코드</h1>
@@ -36,7 +44,7 @@ const Header = ({className}:Pprops)=> {
                     <button type="button" className={style.user} onClick={onClick}>
                         <ThumbnailImage userImage={user.userImage} />
                     </button>
-                    {myLayer && <HomeMyLayer onClick={onClick} />}
+                    {myLayer && <HomeMyLayer onClick={onClick} logout={logout}/>}
                 </>
             }
             {!user && <button type="button" className={style.login} onClick={onLogin}>로그인</button>}

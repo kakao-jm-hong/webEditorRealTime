@@ -21,23 +21,32 @@ const LoginModal = ()=> {
         dispatch(setLogin(false));
     };
 
-    return (
-        <div className={style.wrap} style={{display: loginModal ? 'block' : 'none'}}>
-            <div className={style.inner}>
-                <div className={style.video}>비디오 삽입 예정<span className="blind">비디오</span></div>
-                <div className={style.item}>
-                    <strong className={style.title}>우리의 코딩에 입장</strong>
-                    <p className={style.text}>누구나 함께 멋진 코드를 만들어 갈 수 있습니다!</p>
-                    <small className={style.sub}>로그인 하실 경우 이용 약관과 개인정보 정책에 동의합니다</small>
-                    <a href={""} className={style.facebook}>Start With Facebook <Facebook className={style.icon_facebook} width="25" height="25"/></a>
-                    <a href={"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=40743e16f1a2a35513c0d4bd149aa080&redirect_uri=http://localhost:8081/oauth/kakao"} className={style.kakao}>Start With Kakao<Kakao className={style.icon_kakao} width="35" height="35"/></a>
-                    <a href={""} className={style.google}>Start with Google<Google className={style.icon_google} width="20" height="20"/></a>
-                    <a href={""} className={style.naver}>Start With Naver<Naver className={style.icon_naver} width="30" height="30"/></a>
-                    <button className={style.cancel} onClick={onClick} aria-label="취소"><Close width="30" height="30"/></button>
-                </div>
+    const handleCloseModal = (e: any) => {
+        if(e.target === e.currentTarget){
+            dispatch(setLogin(false));
+        }
+    };
 
-            </div>
-        </div>
+    return (
+        <>
+            {loginModal &&
+                <div className={style.wrap} onClick={handleCloseModal}>
+                    <div className={style.inner}>
+                        <div className={style.video}>비디오 삽입 예정<span className="blind">비디오</span></div>
+                        <div className={style.item}>
+                            <strong className={style.title}>우리의 코딩에 입장</strong>
+                            <p className={style.text}>누구나 함께 멋진 코드를 만들어 갈 수 있습니다!</p>
+                            <small className={style.sub}>로그인 하실 경우 이용 약관과 개인정보 정책에 동의합니다</small>
+                            <a href={""} className={style.facebook}>Start With Facebook <Facebook className={style.icon_facebook} width="25" height="25"/></a>
+                            <a href={"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=40743e16f1a2a35513c0d4bd149aa080&redirect_uri=http://localhost:8081/oauth/kakao"} className={style.kakao}>Start With Kakao<Kakao className={style.icon_kakao} width="35" height="35"/></a>
+                            <a href={""} className={style.google}>Start with Google<Google className={style.icon_google} width="20" height="20"/></a>
+                            <a href={""} className={style.naver}>Start With Naver<Naver className={style.icon_naver} width="30" height="30"/></a>
+                            <button className={style.cancel} onClick={onClick} aria-label="취소"><Close width="30" height="30"/></button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </>
     );
 }
 

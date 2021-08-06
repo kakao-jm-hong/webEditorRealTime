@@ -11,12 +11,13 @@ import ThumbnailImage from "../thumbnail/ThumbnailImage";
 import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
 type Pprops = {
     onClick?: any;
+    logout?: any;
     className?: string;
 }
 
 
 
-const HomeMyLayer = ({onClick, className}: Pprops) => {
+const HomeMyLayer = ({onClick, logout, className}: Pprops) => {
     const { user } = useSelector((state: RootState) => ({user: state.login.user }));
     return (
         <div className={style.wrap}>
@@ -32,7 +33,7 @@ const HomeMyLayer = ({onClick, className}: Pprops) => {
                 </div>
                 <div className={style.list}>
                     <a href="#" className={style.join}> 참여 중인 코드 <span className={style.number}>3</span></a>
-                    <button type="button" className={style.logout}>로그아웃 </button>
+                    <button type="button" onClick={logout} className={style.logout}>로그아웃 </button>
                 </div>
                 <button className={style.cancel} onClick={onClick}><Close width="25" height="25"/></button>
             </div>
