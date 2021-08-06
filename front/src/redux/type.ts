@@ -9,5 +9,8 @@ export type RootState = {
             type: string;
         }
     };
+    my: {
+        layer: boolean;
+    }
 
 };

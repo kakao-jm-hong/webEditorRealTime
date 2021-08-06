@@ -22,8 +22,10 @@ const Header = ({className}:Pprops)=> {
         dispatch(setLogin(true));
     };
 
-    const onMy = () => {
-        // TODO 나의 창 띄우기
+    const [myLayer, setMyLayer] = useState(false);
+
+    const onClick = () => {
+        setMyLayer(!myLayer);
     };
 
     return (
@@ -31,10 +33,10 @@ const Header = ({className}:Pprops)=> {
             <h1 className={style.title}>우리의 코드</h1>
             {user && 
                 <>
-                    <button type="button" className={style.user} onClick={onMy}>
+                    <button type="button" className={style.user} onClick={onClick}>
                         <ThumbnailImage userImage={user.userImage} />
                     </button>
-                    <HomeMyLayer />
+                    {myLayer && <HomeMyLayer onClick={onClick} />}
                 </>
             }
             {!user && <button type="button" className={style.login} onClick={onLogin}>로그인</button>}

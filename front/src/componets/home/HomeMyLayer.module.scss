@@ -64,11 +64,29 @@
 }
 
 .list {
+    display: flex;
+    flex-direction: column;
     padding: 23px 30px;
+    font-size: 16px;
+}
+
+    
+.join {
+    padding: 10px 0;
+}
+
+.logout {
+    padding: 10px 0;
+    text-align: left;
+    font-size: 16px;
+}
+
+.number {
+    font-weight: 600;
 }
 
 .cancel {
     position: absolute;
-    top: 4px;
-    right: 3px;
+    top: 6px;
+    right: 6px;
 }

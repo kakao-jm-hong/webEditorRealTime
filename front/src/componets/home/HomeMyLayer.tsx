@@ -10,29 +10,31 @@ import ThumbnailImage from "../thumbnail/ThumbnailImage";
 
 import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
 type Pprops = {
+    onClick?: any;
     className?: string;
 }
 
 
 
-const HomeMyLayer = () => {
+const HomeMyLayer = ({onClick, className}: Pprops) => {
     const { user } = useSelector((state: RootState) => ({user: state.login.user }));
     return (
         <div className={style.wrap}>
             <div className={style.inner}>
                 <h2 className={style.title}>계정</h2>
-                <div className={style.user}>
+                <a href="#" className={style.user}>
                     <ThumbnailImage userImage={user.userImage} className={style.thumbnail}/>
                     <span className={style.name}>{user.nickname}</span> 
-                </div>
+                </a>
                 <div className={style.interst}>
-                    <span className={style.item}>{0} 팔로윙</span>
-                    <span className={style.item}>{2} 팔로워</span>
+                    <a href="#" className={style.item}>{0} 팔로윙</a>
+                    <a href="#" className={style.item}>{2} 팔로워</a>
                 </div>
                 <div className={style.list}>
-                    <div> 참여 중인 코드</div>
+                    <a href="#" className={style.join}> 참여 중인 코드 <span className={style.number}>3</span></a>
+                    <button type="button" className={style.logout}>로그아웃 </button>
                 </div>
-                <button className={style.cancel}><Close width="25" height="25"/></button>
+                <button className={style.cancel} onClick={onClick}><Close width="25" height="25"/></button>
             </div>
         </div>
     );
