@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import style from './HomeMyLayer.module.scss';
 import classnames from 'classnames';
 import { ReactComponent as User }  from '../images/svg/icon_user_my.svg';
@@ -15,12 +15,23 @@ type Pprops = {
     className?: string;
 }
 
-
-
 const HomeMyLayer = ({onClick, logout, className}: Pprops) => {
+    const el = useRef();
     const { user } = useSelector((state: RootState) => ({user: state.login.user }));
+
+    // const closeHanler = (e: any) => {
+    //     if(user && (!el.current|| !el.current.contains(e.target))) onClick();
+    // };
+
+    // useEffect(() => {
+    //     window.addEventListener('click', closeHanler);
+    //     return () => {
+    //         window.addEventListener('click', closeHanler);
+    //     }
+    // });
+    
     return (
-        <div className={style.wrap}>
+        <div className={style.wrap} /*ref={el}*/>
             <div className={style.inner}>
                 <h2 className={style.title}>계정</h2>
                 <a href="#" className={style.user}>
