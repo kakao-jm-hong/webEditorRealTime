@@ -78,3 +78,6 @@ src
 
 
 ### DataBase Node.js 커넥션 풀링이 추가되었습니다.
+
+### Redis 추가
+참조: https://www.zerocho.com/category/NodeJS/post/5a3238b714c5f9001b16c430
