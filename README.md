@@ -61,12 +61,14 @@ src
 - https://redbinalgorithm.tistory.com/692
 - hader 값으로 jwt token 전달
 
-#### 로그인 플로우
-
 ### Passprotjs 구독
 - 매번 JWT 토큰을 인증하고 node.js를 발급받는 것에서 한계점 미들웨어 정보 구독
 - http://www.passportjs.org/
 
+### DataBase Node.js 커넥션 풀링이 추가되었습니다.
+
+### Redis 추가
+참조: https://www.zerocho.com/category/NodeJS/post/5a3238b714c5f9001b16c430
 
 ### 그외 업데이트
 #### 로그인 이미지의 디자인이 변경되었습니다.
@@ -75,12 +77,6 @@ src
 
 ### 계정 정보 디자인이 추가되었습니다. (Oauth 에서 프로필이미지 가져오고 없으면 기본이미지)
 <img src="./image/2021-08-06-03-44-51.png" width="500">
-
-
-### DataBase Node.js 커넥션 풀링이 추가되었습니다.
-
-### Redis 추가
-참조: https://www.zerocho.com/category/NodeJS/post/5a3238b714c5f9001b16c430
 
 ### Editor 디자인 추가
 <img src="./image/2021-08-12-03-19-30.png" width="500">
