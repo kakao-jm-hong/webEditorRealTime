@@ -1,7 +1,12 @@
 .header {
-    position: relative;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
     display: flex;
     padding: 15px;
+    background-color: #fff;
+    z-index: 10;
 
     @include mediaQuery(pc) {
         padding: 15px;
