@@ -1,0 +1,17 @@
+.main {
+    display: flex;
+    position: relative;
+    padding-top: 83px;
+    height: 100vh;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    box-sizing: border-box;
+
+}
+
+.webeditor {
+    flex: 1 1 auto;
+}
+
+.chatroom {
+    width: 297px;
+}

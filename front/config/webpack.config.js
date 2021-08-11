@@ -516,7 +516,16 @@ module.exports = function (webpackEnv) {
                     resources: `${paths.appSrc}/scss/helper/**/*.scss`,
                   },
                 },
-              ),
+              ).concat({
+                loader: require.resolve('sass-loader'),
+                options: {
+                  additionalData: `@import 'utils.scss';`,
+                  sassOptions: {
+                    includePaths: [`${paths.appSrc}/scss`],
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                  },
+                }
+              }),
               // Don't consider CSS imports dead code even if the
               // containing package claims to have no side effects.
               // Remove this when webpack adds a warning or an error for this.
@@ -538,7 +547,16 @@ module.exports = function (webpackEnv) {
                   },
                 },
                 'sass-loader'
-              ),
+              ).concat({
+                loader: require.resolve('sass-loader'),
+                options: {
+                  additionalData: `@import 'utils.scss';`,
+                  sassOptions: {
+                    includePaths: [`${paths.appSrc}/scss`],
+                    sourceMap: isEnvProduction && shouldUseSourceMap,
+                  },
+                }
+              }),
             },
             // "file" loader makes sure those assets get served by WebpackDevServer.
             // When you `import` an asset, you get its (virtual) filename.

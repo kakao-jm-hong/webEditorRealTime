@@ -49,13 +49,22 @@ table {
 
 button {
     border: 0;
+	padding: 0;
     background-color: transparent;
-}
-
-a:link, a:visited  {
-	color: inherit;
+	cursor: pointer;
 }
 
 a {
 	text-decoration: none;
+	color: inherit;
+}
+
+a:link {
+	color:inherit;
+}
+
+body {
+	font-family: "HiraginoSans", "SFUIDisplay" sans-serif;
+	line-height: 1.25;
+	font-weight: 300;
 }

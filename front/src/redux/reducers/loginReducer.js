@@ -1,4 +1,4 @@
-import { SET_LOGIN_MODAL } from "../actions/loginActions";
+import { SET_LOGIN_MODAL, SET_USER } from "../actions/loginActions";
 
 const reducer = (state= {}, action) => {
     const {type, payload} = action;
@@ -10,6 +10,13 @@ const reducer = (state= {}, action) => {
                 modal: payload,
             };
         }
+        case SET_USER : {
+            return {
+                ...state,
+                user: payload,
+            };
+        }
+        
         default:
             return state;
     }

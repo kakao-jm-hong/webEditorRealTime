@@ -1,10 +1,16 @@
 import React, { useEffect } from "react";
 import style from './LoginModal.module.scss';
 // import classnames from 'classnames';
-import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../../redux/type';
 import { setLogin } from "../../redux/actions/loginActions";
+
+// svg
+import { ReactComponent as Close }  from '../../images/svg/icon_close_search.svg';
+import { ReactComponent as Kakao }  from '../../images/svg/login_kakao.svg';
+import { ReactComponent as Naver }  from '../../images/svg/login_naver.svg';
+import { ReactComponent as Google }  from '../../images/svg/login_google.svg';
+import { ReactComponent as Facebook }  from '../../images/svg/login_facebook.svg';
 
 const LoginModal = ()=> {
     const dispatch = useDispatch();
@@ -15,20 +21,32 @@ const LoginModal = ()=> {
         dispatch(setLogin(false));
     };
 
+    const handleCloseModal = (e: any) => {
+        if(e.target === e.currentTarget){
+            dispatch(setLogin(false));
+        }
+    };
+
     return (
-        <div className={style.wrap} style={{display: loginModal ? 'block' : 'none'}}>
-            <form className={style.inner}>
-                <label htmlFor="login_id" className="blind">ID</label>
-                <input id="login_id" type="text" placeholder="아이디" className={style.id}/>
-                <label htmlFor="login_password" className="blind">비밀번호</label>
-                <input id="login_password" type="password" placeholder="비밀번호" className={style.password}/>
-                <button type="submit" className={style.login}>로그인</button>
-                <a href={"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=40743e16f1a2a35513c0d4bd149aa080&redirect_uri=http://localhost:8081/oauth/kakao"} className={style.kakao}>카카오 로그인</a>
-                <a href={""} className={style.google}>구글 로그인</a>
-                <a href={""} className={style.naver}>네이버 로그인</a>
-                <button className={style.cancel} onClick={onClick} aria-label="취소"><Close width="18" height="18"/></button>
-            </form>
-        </div>
+        <>
+            {loginModal &&
+                <div className={style.wrap} onClick={handleCloseModal}>
+                    <div className={style.inner}>
+                        <div className={style.video}>비디오 삽입 예정<span className="blind">비디오</span></div>
+                        <div className={style.item}>
+                            <strong className={style.title}>우리의 코딩에 입장</strong>
+                            <p className={style.text}>누구나 함께 멋진 코드를 만들어 갈 수 있습니다!</p>
+                            <small className={style.sub}>로그인 하실 경우 이용 약관과 개인정보 정책에 동의합니다</small>
+                            <a href={""} className={style.facebook}>Start With Facebook <Facebook className={style.icon_facebook} width="25" height="25"/></a>
+                            <a href={"https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=40743e16f1a2a35513c0d4bd149aa080&redirect_uri=http://localhost:8081/oauth/kakao"} className={style.kakao}>Start With Kakao<Kakao className={style.icon_kakao} width="35" height="35"/></a>
+                            <a href={""} className={style.google}>Start with Google<Google className={style.icon_google} width="20" height="20"/></a>
+                            <a href={""} className={style.naver}>Start With Naver<Naver className={style.icon_naver} width="30" height="30"/></a>
+                            <button className={style.cancel} onClick={onClick} aria-label="취소"><Close width="30" height="30"/></button>
+                        </div>
+                    </div>
+                </div>
+            }
+        </>
     );
 }
 

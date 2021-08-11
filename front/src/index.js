@@ -9,12 +9,17 @@ import reportWebVitals from './reportWebVitals';
 import { Provider } from 'react-redux';
 import configureStore from "./redux/configureStore";
 
+// React Cookie
+import { CookiesProvider } from 'react-cookie';
+
 const store = configureStore({ loading: false, login: {modal: false}});
 ReactDOM.render(
   <Provider store={store}>
-    <React.StrictMode>
-      <App />
-    </React.StrictMode>
+    <CookiesProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </CookiesProvider>
   </Provider>,
   document.getElementById('root')
 );

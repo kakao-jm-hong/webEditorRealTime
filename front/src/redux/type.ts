@@ -3,9 +3,21 @@ export type RootState = {
     login: {
         modal: boolean;
         user: {
-            asessToken: string | null;
-            imgUrl: string | null;
-            name: string;
+            id: string;
+            nickname: string;
+            userImage: string;
+            type: string;
         }
     };
+    my: {
+        layer: boolean;
+    }
+
+};
+
+export type UserType = {
+    id: string;
+    nickname: string;
+    userImage: string;
+    type: string;
 };

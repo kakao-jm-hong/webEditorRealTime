@@ -1,0 +1,71 @@
+.wrap {
+    display: flex;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+
+}
+
+.wrap:hover, .wrap:focus {
+    box-shadow: 0 6px 24px 0 rgb(0 ,0 ,0 , .18);
+}
+
+.link {
+    display: flex;
+    padding: 18px 0;
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
+
+    @include mediaQuery(pc) {
+        padding: 36px 0;
+    }
+}
+
+.image {
+    flex: 0 0 auto;
+    width: 48px;
+    height: 48px;
+    margin: 0 12px 0 8px;
+
+    &::after {
+        border-color: rgba($G-color-black, 0.04);
+    }
+
+    @include mediaQuery(pc) {
+        width: 66px;
+        height: 66px;
+        margin-right: 15px;
+    }
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-width: 0;
+}
+
+.nickname {
+    font-size: 13px;
+    color: #222;
+
+    @include mediaQuery(pc) {
+        font-size: 16px;
+    }
+}
+
+.title {
+    @include ellipsis(2);
+
+    margin-top: 3px;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 1.5;
+    color: #666;
+
+    @include mediaQuery(pc) {
+        margin-top: 6px;
+        font-size: 14px;
+        line-height: 1.43;
+    }
+}

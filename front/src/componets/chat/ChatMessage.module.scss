@@ -1,0 +1,39 @@
+.wrap {
+    display: flex;
+    align-items: flex-start;
+    position: relative;
+}
+
+.wrap.right {
+    justify-content: flex-end;
+}
+
+.box {
+    margin: 12px 7px 0;
+    font-size: 14px;
+    color: #fff;
+    font-weight: 400;
+}
+
+.right .box {
+    text-align: right;
+}
+
+.imageInner {
+    // width: 29px;
+    // height: 30px;
+}
+
+.wrap.right .imageWrap{
+    background-color: skyblue;
+}
+
+.message {
+    margin-top: 12px;
+    padding: 5px;
+    border-radius: 8px;
+    background-color: #fff;
+    font-size: 14px;
+    text-align: left;
+    color: #000;
+}
