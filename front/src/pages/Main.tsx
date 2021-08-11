@@ -5,11 +5,18 @@ import { setUser } from "../redux/actions/loginActions";
 import { useCookies } from "react-cookie";
 import Header from '../componets/Header';
 import LoginModal from '../componets/modal/LoginModal';
-import style from './common.module.scss';
+import EditorList from '../componets/editor/EditorList';
+import style from './Main.module.scss';
+// import Chat from "../componets/chat/Chat";
+
+const DEMO_PROPS = {
+    activeChat: true,
+}
 
 const Main = ()=> {
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
-    
+    // [D] 임시데이터
+    const {activeChat} = DEMO_PROPS;
     const dispatch = useDispatch();
 
     const getUserInfo: any = async (access_token: String) => {
@@ -29,9 +36,11 @@ const Main = ()=> {
             getUserInfo(token).then((data: any) => {
                 console.log(data);
                 if(data){
+                    console.log("로그인 성공하셧습니다.");
                     dispatch(setUser(data));
                 }else{
                     removeCookie('token');
+                    console.log("로그인 오류");
                 }
             });
         }
@@ -41,9 +50,9 @@ const Main = ()=> {
         <>
             <Header className={style.header} />
             <main id="content" className={style.main}>
-                
+                <EditorList />
+                <LoginModal />
             </main>
-            <LoginModal />
         </>
     );
 }

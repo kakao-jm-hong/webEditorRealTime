@@ -1,50 +1,51 @@
 import React from 'react';
-import style from './EditorList.module.scss';
-import EditorItem from './EditorItem';
+import style from './ChatList.module.scss';
+import ChatItem from './ChatItem';
 
 const DEMO_PROPS = {
     items: [
         {
             title: '알고리즘 도와줘~',
             lang: 'C/C++',
-            nickname: '홍정민',
-            roomId: 'aaa',
+            id: '1',
+            lastMessage: 'hi',
         },
         {
             title: '사례드립니다...',
             lang: 'Python',
-            nickname: '이대경',
-            roomId: 'bbb',
+            id: '2',
+            lastMessage: 'bye',
         },
         {
             title: '리더님 코드좀 봐주세요',
             lang: 'JavaScript',
-            nickname: '박건호',
-            roomId: 'ccc',
+            id: '3',
+            lastMessage: '이거 어떻게 풀어?',
         },
         {
             title: '알고리즘 도와줘~',
             lang: 'Ruby',
-            nickname: '권민용',
+            id: '4',
+            lastMesage: '아 귀찮다.',
         },
         {
             title: '이거 왜 에러나요???',
             lang: 'C/C++',
-            nickname: '백선빈',
-            roomId: 'ddd',
+            id: '5',
+            lastMessage: 'ㅋㅋㅋㅋㅋㅋㅋㅋㅋ',
         }
     ],
 };
 
-const EditorList = ()=> {
+const ChatList = ()=> {
     const { items } = DEMO_PROPS;
     return (
         <ul className={style.list}>
             {items.map((item, index) => 
-                <li key={index}className={style.item}>{<EditorItem item={item}/>}</li>
+                <li key={index}className={style.item}>{<ChatItem item={item}/>}</li>
             )}
         </ul>
     );
 };
 
-export default EditorList;
+export default ChatList;

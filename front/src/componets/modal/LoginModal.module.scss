@@ -71,32 +71,19 @@
     width: 420px;
     font-family: "SFUIDisplay";
     border-radius: 8px;
+    border:1px solid #ccc;
     font-size: 13px;
     font-weight: 700;
-    color: #fff;
-}
-
-.kakao {
-    color: #3c1e1e;
-    background-color: yellow;
-}
-
-.naver {
-    background-color: #00b900;
-}
-
-.google {
-    background-color: #4285f4;
-}
-
-.facebook {
-    background-color:#1877f2;
+    color: #ccc;
+    background-color: #fff;
+    box-sizing: border-box;
 }
 
 .icon_facebook {
     position: absolute;
     left: 15px;
     top: 13px;
+    color: #ccc;
 }
 
 .icon_kakao {
@@ -109,12 +96,45 @@
     position: absolute;
     left: 16px;
     top: 15px;
+    color: #ccc;
 }
 
 .icon_naver {
     position: absolute;
     left: 10px;
     top: 10px;
+}
+
+.kakao:hover, .kakao:focus {
+    color: #3c1e1e;
+    background-color: yellow;
+    border-color: yellow;
+}
+
+.naver:hover, .naver:focus {
+    color: #fff;
+    background-color: #00b900;
+    border-color: #00b900;
+}
+
+.google:hover, .google.foucs {
+    color: #fff;
+    background-color: #4285f4;
+    border-color: #4285f4;
+    
+    .icon_google {
+        color: #fff;
+    }
+}
+
+.facebook:hover, .facebook:focus {
+    color: #fff;
+    background-color:#1877f2;
+    border-color: #1877f2;
+
+    .icon_facebook {
+        color: #fff;
+    }
 }
 
 .cancel {

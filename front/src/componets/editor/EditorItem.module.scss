@@ -1,24 +1,27 @@
 .wrap {
     display: flex;
+    border-radius: 15px;
+    border: 1px solid #ccc;
+
+}
+
+.link {
+    display: flex;
     padding: 18px 0;
+    position: relative;
+    flex: 1 1 auto;
+    min-width: 0;
 
     @include mediaQuery(pc) {
         padding: 36px 0;
     }
 }
 
-.link {
-    display: flex;
-    position: relative;
-    flex: 1 1 auto;
-    min-width: 0;
-}
-
 .image {
     flex: 0 0 auto;
     width: 48px;
     height: 48px;
-    margin-right: 12px;
+    margin: 0 12px 0 8px;
 
     &::after {
         border-color: rgba($G-color-black, 0.04);

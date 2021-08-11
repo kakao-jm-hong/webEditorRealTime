@@ -7,7 +7,8 @@ import { RootState } from '../redux/type';
 import HomeMyLayer from "./home/HomeMyLayer";
 import ThumbnailImage from "./thumbnail/ThumbnailImage";
 import { useCookies } from "react-cookie";
-import { Redirect } from "react-router-dom";
+import { ReactComponent as Chat }  from '../images/svg/icon_chat.svg';
+// import { Redirect } from "react-router-dom";
 
 type Pprops = {
     className?: string;
@@ -38,9 +39,10 @@ const Header = ({className}:Pprops)=> {
 
     return (
         <header className={classnames(style.header, className)}>
-            <h1 className={style.title}>우리의 코드</h1>
+            <h1 className={style.title}><a href="/">우리의 코드</a></h1>
             {user && 
                 <>
+                    <button type="button" className={style.chat}><Chat width="35" height="35" /><span className="blind">채팅</span></button>
                     <button type="button" className={style.user} onClick={onClick}>
                         <ThumbnailImage userImage={user.userImage} />
                     </button>

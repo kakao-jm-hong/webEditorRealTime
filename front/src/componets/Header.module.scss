@@ -4,9 +4,7 @@
     padding: 15px;
 
     @include mediaQuery(pc) {
-        width: $G-width-pc;
-        padding: 15px 0;
-        margin: 0 auto;
+        padding: 15px;
     }
 }
 
@@ -27,4 +25,8 @@
 
 .setting {
 
+}
+
+.chat {
+    margin-right: 15px;
 }
