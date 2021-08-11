@@ -17,6 +17,7 @@ const Main = ()=> {
     const [cookies, setCookie, removeCookie] = useCookies(['token']);
     // [D] 임시데이터
     const {activeChat} = DEMO_PROPS;
+
     const dispatch = useDispatch();
 
     const getUserInfo: any = async (access_token: String) => {
@@ -27,8 +28,9 @@ const Main = ()=> {
                 'Authorization': `Bearer ${access_token}`
             }
         }).then(res => res.json());
+        console.log("로그인 상대 결과 받음");
         return result;
-    }
+    };
 
     useEffect(() => {
         const token = cookies.token;

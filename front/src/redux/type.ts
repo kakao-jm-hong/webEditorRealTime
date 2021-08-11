@@ -14,3 +14,10 @@ export type RootState = {
     }
 
 };
+
+export type UserType = {
+    id: string;
+    nickname: string;
+    userImage: string;
+    type: string;
+};
