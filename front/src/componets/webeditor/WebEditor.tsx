@@ -7,7 +7,9 @@ type Pprops = {
 
 const WebEditor = ({className}: Pprops) => {
     return (
-        <div className={classnames(style.wrap, className)}></div>
+        <div className={classnames(style.wrap, className)}>
+            WebEditor
+        </div>
     )
 };
 

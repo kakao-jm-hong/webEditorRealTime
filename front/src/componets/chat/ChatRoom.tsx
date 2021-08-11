@@ -9,6 +9,7 @@ type Pprops = {
 const ChatRoom = ({className}: Pprops) => {
     return (
         <div className={classnames(style.wrap, className)}>
+            ChatRoom
         </div>
     )
 }

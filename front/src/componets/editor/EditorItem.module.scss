@@ -5,6 +5,10 @@
 
 }
 
+.wrap:hover, .wrap:focus {
+    box-shadow: 0 6px 24px 0 rgb(0 ,0 ,0 , .18);
+}
+
 .link {
     display: flex;
     padding: 18px 0;

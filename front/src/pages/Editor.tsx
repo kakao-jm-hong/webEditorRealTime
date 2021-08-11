@@ -1,52 +1,14 @@
+import React from 'react';
 import ChatRoom from '../componets/chat/ChatRoom';
-import { useSelector, useDispatch } from 'react-redux';
-import { setUser } from "../redux/actions/loginActions";
-import { useCookies } from "react-cookie";
-import React, {useEffect} from 'react';
-import Header from '../componets/Header';
-import LoginModal from '../componets/modal/LoginModal';
 import style from './Editor.module.scss';
 import WebEditor from '../componets/webeditor/WebEditor';
 
 const Editor = ()=> {
-    const [cookies, setCookie, removeCookie] = useCookies(['token']);
-
-    const dispatch = useDispatch();
-
-    const getUserInfo: any = async (access_token: String) => {
-        console.log()
-        const result = await fetch('http://localhost:8081/user/certification',{
-            method: 'GET',
-            headers: {
-                'Content-type': 'application/x-www-form-urlencoded;charset=utf-8',
-                'Authorization': `Bearer ${access_token}`
-            }
-        }).then(res => res.json());
-        console.log("로그인 상대 결과 받음");
-        return result;
-    };
-
-    useEffect(() => {
-        const token = cookies.token;
-        if(cookies.token !== undefined){
-            getUserInfo(token).then((data: any) => {
-                console.log(data);
-                if(data){
-                    console.log("로그인 성공하셧습니다.");
-                    dispatch(setUser(data));
-                }else{
-                    removeCookie('token');
-                    console.log("로그인 오류");
-                }
-            });
-        }
-    });
     return (
         <>
-            <Header className={style.header} />
             <main id="content" className={style.main}>
-                <WebEditor />
-                <ChatRoom />
+                <WebEditor className={style.webeditor}/>
+                <ChatRoom className={style.chatroom}/>
             </main>
         </>
     );

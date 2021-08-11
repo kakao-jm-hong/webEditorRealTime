@@ -7,6 +7,7 @@ const fetch = require('node-fetch');
 const jwt = require('../modules/jwt');
 
 router.get('/certification', async (req, res) => {
+    console.log('certificate');
     const [type, token] = req.get('Authorization').split(' ');
     const verify = await jwt.verify(token);
     const result =  {id:verify.id, nickname: verify.nickname, userImage: verify.userImage};
