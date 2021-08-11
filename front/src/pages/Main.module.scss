@@ -1,11 +1,11 @@
 .main {
     position: relative;
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 83px 15px 15px;
 
     @include mediaQuery(pc) {
         width: $G-width-pc;
-        padding: 0;
+        padding: 83px 0 15px;
         margin: 0 auto;
     }
 }

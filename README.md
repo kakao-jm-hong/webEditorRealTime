@@ -81,3 +81,6 @@ src
 
 ### Redis 추가
 참조: https://www.zerocho.com/category/NodeJS/post/5a3238b714c5f9001b16c430
+
+### Editor 디자인 추가
+<img src="./image/2021-08-12-03-16-06.png" width="500">

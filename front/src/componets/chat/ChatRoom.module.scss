@@ -1,0 +1,31 @@
+.wrap {
+    position: relative;
+    padding-bottom: 51px;
+    background-color: blue;
+    box-sizing: border-box;
+}
+
+
+.message_form {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+}
+
+.input_message {
+    width: 100%;
+    padding: 15px 5px 14px;
+    box-sizing: border-box;
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.message_wrap {
+    padding: 5px;
+}
+
+.item + .item {
+    margin-top: 10px;
+}

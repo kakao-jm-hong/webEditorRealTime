@@ -32,6 +32,12 @@ const DEMO_PROPS = {
             lang: 'C/C++',
             nickname: '백선빈',
             roomId: 'ddd',
+        },
+        {
+            title: '김치찌개 맛있게 코드짜는 법???',
+            lang: 'Python',
+            nickname: '김치워리어',
+            roomId: 'ddd',
         }
     ],
 };
