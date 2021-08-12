@@ -23,7 +23,14 @@
 }
 
 .message_wrap {
+    overflow-y: scroll;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 51px;
     padding: 5px;
+    box-sizing: border-box;
 }
 
 .item + .item {

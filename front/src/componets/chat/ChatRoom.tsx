@@ -2,6 +2,7 @@ import React, {useState, useRef, useEffect} from "react";
 import style from "./ChatRoom.module.scss";
 import ChatMessage from './ChatMessage';
 import classnames from 'classnames';
+import { useSelector } from "react-redux";
 
 type Pprops = {
     className?: string;
@@ -11,7 +12,7 @@ type messageType = {
     id: string;
     nickname: string;
     text: string;
-    imageSRc: string;
+    imageSrc: string;
 };
 
 const DEMO_PROPS = {
@@ -49,27 +50,34 @@ const DEMO_PROPS = {
 const ChatRoom = ({className}: Pprops) => {
     // const {myId, messages} = DEMO_PROPS;
     const ulRef = useRef<HTMLUListElement>(null);
-    const [messages,setMessage] = useState([]);
+    const [messages, setMessage] = useState(DEMO_PROPS.messages);
+    const [myId, setMyId] = useState(DEMO_PROPS.myId);
 
     useEffect(()=> {
-
+  
     });
 
-    const addMessage = (myId: string, message:messageType) => {
+    const addMessage = (message: messageType) => {
         // if (!ulRef.current)
         //     return;
         // ulRef.current.appendChild(<ChatMessage />);
+        // setMessage([...messages]);
+        // console.log(...messages);
+        setMessage([...messages, message]);
         
     };
 
     const onKeyPress = (e: any) => {
         e.preventDefault();
         const target = e.target.querySelector('input');
-        target.value ='';
-
+        
         // TODO SEND API
-
+        
         // [D]
+        if(target.value === '' || target.value === null)
+            return;
+        addMessage({id:myId, nickname:'홍정민', text: target.value, imageSrc: '#'});
+        target.value ='';
     };
 
     return (
