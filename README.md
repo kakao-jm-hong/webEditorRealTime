@@ -66,6 +66,7 @@ src
 - http://www.passportjs.org/
 
 ### DataBase Node.js 커넥션 풀링이 추가되었습니다.
+- https://techbless.github.io/2020/01/17/Node-js%EC%97%90%EC%84%9C-Mysql-Connection-Pool-%EC%9D%B4%EC%9A%A9%ED%95%98%EA%B8%B0/
 
 ### Redis 추가
 참조: https://www.zerocho.com/category/NodeJS/post/5a3238b714c5f9001b16c430

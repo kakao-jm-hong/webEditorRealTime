@@ -26,7 +26,7 @@ const LoginModal = ()=> {
             dispatch(setLogin(false));
         }
     };
-// https://accounts.google.com/o/oauth2/v2/auth/oauthchooseaccount?access_type=offline&prompt=consent&response_type=code&redirect_uri=https%3A%2F%2Fdev.article.me%2Fauth%2Fgoogle%2Fcallback&scope=profile&client_id=1011658083016-dd66lu0slg2mcfsr5f2d016vfnqsg60r.apps.googleusercontent.com&flowName=GeneralOAuthFlow
+    
     return (
         <>
             {loginModal &&

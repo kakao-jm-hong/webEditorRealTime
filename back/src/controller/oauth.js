@@ -24,17 +24,17 @@ class Kakao {
 
 //  TODO Naver
 
-class Google {
-    constructor(code) {
-        this.url = 'https://www.googleapis.com/oauth2/v4/token';
-        this.clientID = '504055526892-f5tgeese5lhpkc6qpv36oqalthld9ph5.apps.googleusercontent.com';
-        this.clientSecret = 'pmeHsobkIFIqpNMR1NeTz6hm';
-        this.redirectUri = 'http://localhost:8081/oauth/google';
-        this.code = code;
-        this.type = 'GOOGLE';
-        this.userInfoUrl = 'https://people.googleapis.com/v1/people/me';
-    }
-}
+// class Google {
+//     constructor(code) {
+//         this.url = 'https://www.googleapis.com/oauth2/v4/token';
+//         this.clientID = '504055526892-f5tgeese5lhpkc6qpv36oqalthld9ph5.apps.googleusercontent.com';
+//         this.clientSecret = 'pmeHsobkIFIqpNMR1NeTz6hm';
+//         this.redirectUri = 'http://localhost:8081/oauth/google';
+//         this.code = code;
+//         this.type = 'GOOGLE';
+//         this.userInfoUrl = 'https://people.googleapis.com/v1/people/me';
+//     }
+// }
 
 const getAccessToken = async (options) => {
     try {

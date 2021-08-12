@@ -2,7 +2,6 @@ import React, {useState, useRef, useEffect} from "react";
 import style from "./ChatRoom.module.scss";
 import ChatMessage from './ChatMessage';
 import classnames from 'classnames';
-import { useSelector } from "react-redux";
 
 type Pprops = {
     className?: string;
@@ -58,12 +57,9 @@ const ChatRoom = ({className}: Pprops) => {
     });
 
     const addMessage = (message: messageType) => {
-        // if (!ulRef.current)
-        //     return;
-        // ulRef.current.appendChild(<ChatMessage />);
-        // setMessage([...messages]);
-        // console.log(...messages);
         setMessage([...messages, message]);
+        if(!ulRef.current) return;
+        ulRef.current.scrollTop =  ulRef.current.scrollHeight;
         
     };
 
@@ -72,8 +68,7 @@ const ChatRoom = ({className}: Pprops) => {
         const target = e.target.querySelector('input');
         
         // TODO SEND API
-        
-        // [D]
+
         if(target.value === '' || target.value === null)
             return;
         addMessage({id:myId, nickname:'홍정민', text: target.value, imageSrc: '#'});
