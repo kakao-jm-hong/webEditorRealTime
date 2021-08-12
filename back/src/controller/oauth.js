@@ -24,23 +24,33 @@ class Kakao {
 
 //  TODO Naver
 
-//  TODO Google
+class Google {
+    constructor(code) {
+        this.url = 'https://www.googleapis.com/oauth2/v4/token';
+        this.clientID = '504055526892-f5tgeese5lhpkc6qpv36oqalthld9ph5.apps.googleusercontent.com';
+        this.clientSecret = 'pmeHsobkIFIqpNMR1NeTz6hm';
+        this.redirectUri = 'http://localhost:8081/oauth/google';
+        this.code = code;
+        this.type = 'GOOGLE';
+        this.userInfoUrl = 'https://people.googleapis.com/v1/people/me';
+    }
+}
 
 const getAccessToken = async (options) => {
     try {
-            return await fetch(options.url, {
-                method: 'POST',
-                headers: {
-                    'content-type':'application/x-www-form-urlencoded;charset=utf-8'
-                },
-                body: qs.stringify({
-                    grant_type: 'authorization_code',//특정 스트링
-                    client_id: options.clientID,
-                    client_secret: options.clientSecret,
-                    redirectUri: options.redirectUri,
-                    code: options.code,
-                }),
-            }).then(res => res.json());
+        return await fetch(options.url, {
+            method: 'POST',
+            headers: {
+                'content-type':'application/x-www-form-urlencoded;charset=utf-8'
+            },
+            body: qs.stringify({
+                grant_type: 'authorization_code',//특정 스트링
+                client_id: options.clientID,
+                client_secret: options.clientSecret,
+                redirectUri: options.redirectUri,
+                code: options.code,
+            }),
+        }).then(res => res.json());
     }catch(e) {
         logger.info("error", e);
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useState, useRef, useEffect} from "react";
 import style from "./ChatRoom.module.scss";
 import ChatMessage from './ChatMessage';
 import classnames from 'classnames';
@@ -7,8 +7,17 @@ type Pprops = {
     className?: string;
 };
 
+type messageType = {
+    id: string;
+    nickname: string;
+    text: string;
+    imageSRc: string;
+};
+
 const DEMO_PROPS = {
     myId: '1',
+    myNickname: '홍정민',
+    myImageSrc: '#',
     messages: [
         {
             id: '1',
@@ -38,16 +47,39 @@ const DEMO_PROPS = {
 }
 
 const ChatRoom = ({className}: Pprops) => {
-    const {myId, messages} = DEMO_PROPS;
+    // const {myId, messages} = DEMO_PROPS;
+    const ulRef = useRef<HTMLUListElement>(null);
+    const [messages,setMessage] = useState([]);
+
+    useEffect(()=> {
+
+    });
+
+    const addMessage = (myId: string, message:messageType) => {
+        // if (!ulRef.current)
+        //     return;
+        // ulRef.current.appendChild(<ChatMessage />);
+        
+    };
+
+    const onKeyPress = (e: any) => {
+        e.preventDefault();
+        const target = e.target.querySelector('input');
+        target.value ='';
+
+        // TODO SEND API
+
+        // [D]
+    };
 
     return (
         <div className={classnames(style.wrap, className)}>
-            <ul className={style.message_wrap}>
+            <ul ref={ulRef} className={style.message_wrap}>
                 {messages.map((item,index)=> <li key={index} className={style.item}><ChatMessage myId={myId} message={item}/></li>)}
             </ul>
-            <form className={style.message_form}>
+            <form className={style.message_form} onSubmit={onKeyPress}>
                 <label htmlFor="input_message" className="blind">메시지</label>
-                <input id="input_message" type="text" className={style.input_message} placeholder="메시지를 입력해주세요"/>
+                <input id="input_message" type="text" className={style.input_message} autoComplete="off" placeholder="메시지를 입력해주세요"/>
             </form>
         </div>
     )
